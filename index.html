@@ -10,32 +10,33 @@
 
 <body ng-app="myApp" ng-controller="myAppController">
 
+    <form name="myForm" novalidate>
 
-    <div class="form-group">
+        <div class="form-group">
 
-        <div ng-repeat="tempName in NameArray">
-            <label for="exampleInputName">Name</label>
-            <input type="text" my-text-error class="form-control" validatenull="Validate_ForNull(FirstName)" ng-model="FirstName" id="exampleInputName" aria-describedby="NameHelp" placeholder="{{tempName}}">
-            <small id="NameHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
+            <div ng-repeat="tempName in NameArray">
+                <label for="exampleInputName">Name</label>
+                <input type="text" my-text-error class="form-control" validatenull="Validate_ForNull(FirstName)" ng-model="FirstName" id="exampleInputName" aria-describedby="NameHelp" placeholder="{{tempName}}" required>
+                <small id="NameHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
+            </div>
+
+            <div>
+                <label for="exampleInputEmail">Email address</label>
+                <input my-email-error type="text" class="form-control" ng-model="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
+            </div>
+
+            <div>
+                <label for="exampleInputMobileNumber">Phone Number</label>
+                <input my-number-error type="text" class="form-control" ng-model="MobileNumber" id="exampleInputMobileNumber" aria-describedby="PhoneHelp" placeholder="Enter mobile number" required>
+                <small id="PhoneHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
+            </div>
+
+            <button type="button" ng-click="clickThisShit(myForm)" class="btn btn-success" ng-disabled="myForm.$invalid"> Click Here !! </button>
+
         </div>
 
-
-
-        <div my-email-error>
-            <label for="exampleInputEmail">Email address</label>
-            <input type="text" class="form-control" ng-model="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
-        </div>
-
-        <div my-number-error>
-            <label for="exampleInputMobileNumber">Phone Number</label>
-            <input type="text" class="form-control" ng-model="MobileNumber" id="exampleInputMobileNumber" aria-describedby="PhoneHelp" placeholder="Enter mobile number">
-            <small id="PhoneHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
-        </div>
-
-        <button ng-click="clickThisShit" class="btn btn-success"> Click Here !! </button>
-
-    </div>
+    </form>
 
     <script src="angular.js"></script>
     <script type="text/javascript" src="app.module.js"></script>
